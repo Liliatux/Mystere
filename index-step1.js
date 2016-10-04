@@ -2,18 +2,15 @@ $(document).ready(main);
 
 // Fonction principale
 function main(){
-	var aleatoire = [22, 7];
-	console.log(aleatoire);
+	var aleatoire = Math.floor(Math.random()*3);
 	$("button").click(function(){
 		var mystere = $("#nombre").val();
-		console.log('mystere: ' + mystere);
-		if (mystere == aleatoire[Math.random()* lenght]){
+		if (mystere == aleatoire){
 			alert("Gagné");
 		} else{
 			alert("Perdu");
 		}
 	});
-console.log(main());
 		// Comparer ce contenu à un nombre que vous choisissez
 			// Si le contenu est égal
 			// Afficher une alert Gagné
@@ -31,5 +28,3 @@ console.log(main());
 
 
 }
-
-main();
