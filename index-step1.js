@@ -2,13 +2,22 @@ $(document).ready(main);
 
 // Fonction principale
 function main(){
-	var aleatoire = Math.floor(Math.random()*3);
 	$("button").click(function(){
 		var mystere = $("#nombre").val();
-		if (mystere == aleatoire){
+		var aleatoire = Math.round(Math.random() * (3 - 1));
+		console.log(aleatoire);
+		if(mystere == aleatoire){
 			alert("Gagné");
+		} else if(mystere < aleatoire){
+			alert("Votre nombre est trop petit");
 		} else{
-			alert("Perdu");
+			alert("Votre nombre est trop grand");
+		}
+		function vie(){
+			var vie = 3
+			for(vie = 0; vie < 3; vie--) {
+				alert("2 vies restantes");
+			}
 		}
 	});
 		// Comparer ce contenu à un nombre que vous choisissez
