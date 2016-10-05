@@ -1,10 +1,10 @@
 # Instructions
 Il faut deviner le nombre choisi par l'ordinateur.
-
+Fait
 
 ## Step 2
 * Si perdu, afficher si on était au dessus ou en dessous du nombre mystère.
-
+Fait
 
 ## Step 3
 * Mettre en place un système 3 vies : le nombre de tentatives est égal à 3
