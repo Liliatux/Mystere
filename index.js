@@ -5,14 +5,22 @@ function main(){
 	var nombre = Math.round(Math.random() * (3 - 1) + 1);
 	console.log(nombre);
 
+	function reset(){
+		tentatives = 3;
+		nombre = Math.round(Math.random() * (3 - 1) + 1);
+		$("#count").text(tentatives);
+		nombre;
+	}
+	console.log("truc")
+
 	function clickValider(){
 		var input = $("input").val();
-		if(tentatives == 0){
+		if(partieGagnee()){
+			alert("Gagné !");
+			reset();
+		} else if(partiePerdue()){
 			alert("Perdu");
-			location.reload();
-		} else if(input == nombre){
-			alert("Gagné");
-			location.reload();
+			reset();
 		} else if(input > nombre){
 			alert("Votre nombre est trop grand");
 			tentatives--;
@@ -22,13 +30,20 @@ function main(){
 			tentatives--;
 			$("#count").text(tentatives);
 		}
+
+		function partieGagnee(){
+			return(input == nombre);			
+		}
+
+		function partiePerdue(){
+			return(tentatives == 0);
+		}
 	}
 
-	$("button").click(clickValider);
+	function demarrerPartie(){
+		alert("Devinez le nombre mystère");
+	}
 
-}	/*
-		Concernant la 'refactorisation' : 
-		- créer une fonction 'demarrerPartie'
-		- créer une fonction 'partieGagnee'
-		- créer une fonction 'partiePerdue'
-	*/
+	$("#go").click(demarrerPartie);
+	$("#valider").click(clickValider);
+}

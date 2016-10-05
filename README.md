@@ -9,7 +9,9 @@ Fait
 ## Step 3
 * Mettre en place un système 3 vies : le nombre de tentatives est égal à 3
 	* avant de perdre, j'ai droit à 3 tentatives
+Fait
 * Factoriser son code
+Fait
 
 ## Step 4
 * Avant de commencer, donner la possiblité de choisir le nombre de tentatives
