@@ -1,17 +1,10 @@
 $(document).ready(main);
 
 function main(){
-	var tentatives = 3;
-	var nombre = Math.round(Math.random() * (3 - 1) + 1);
-	console.log(nombre);
-
-	function reset(){
-		tentatives = 3;
-		nombre = Math.round(Math.random() * (3 - 1) + 1);
-		$("#count").text(tentatives);
-		nombre;
-	}
-	console.log("truc")
+	var tentatives;
+	var mystere;
+	console.log(mystere);
+	reset();
 
 	function clickValider(){
 		var input = $("input").val();
@@ -21,7 +14,7 @@ function main(){
 		} else if(partiePerdue()){
 			alert("Perdu");
 			reset();
-		} else if(input > nombre){
+		} else if(input > mystere){
 			alert("Votre nombre est trop grand");
 			tentatives--;
 			$("#count").text(tentatives);
@@ -32,12 +25,19 @@ function main(){
 		}
 
 		function partieGagnee(){
-			return(input == nombre);			
+			return(input == mystere);			
 		}
 
 		function partiePerdue(){
 			return(tentatives == 0);
 		}
+	}
+
+	function reset(){
+		tentatives = 3;
+		mystere = Math.round(Math.random() * (3 - 1) + 1);
+		$("#count").text(tentatives);
+		console.log(mystere);
 	}
 
 	function demarrerPartie(){
@@ -46,4 +46,4 @@ function main(){
 
 	$("#go").click(demarrerPartie);
 	$("#valider").click(clickValider);
-}
+} 
