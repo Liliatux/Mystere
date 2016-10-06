@@ -1,16 +1,8 @@
 $(document).ready(main);
 
 function main(){
-	var tentatives = 3;
-	var mystere = Math.round(Math.random() * (max - min) + min);
-	var min = 1;
-	var max = 4;
-	var choixTentatives = $("#tent").text(tentatives);
-	var choixMin = $("#minimum").text(min);
-	var choixMax = $("#maximum").text(max);
-
-	console.log("tentatives" + tentatives);
-	console.log("mystere" + mystere);
+	var tentatives;
+	var mystere;
 
 	function clickValider(){
 		var input = $("input").val();
@@ -22,12 +14,10 @@ function main(){
 			reset();
 		} else if(input > mystere){
 			alert("Votre nombre est trop grand");
-			tentatives--;
-			choixTentatives;
+			diminution();
 		} else{
 			alert("Votre nombre est trop petit");
-			tentatives--;
-			choixTentatives;
+			diminution();
 		}
 
 		function partieGagnee(){
@@ -37,17 +27,24 @@ function main(){
 		function partiePerdue(){
 			return(tentatives == 0);
 		}
+
+		function diminution(){
+			tentatives--;
+			$("#tent").html(tentatives);
+		}
 	}
 
 	function reset(){
-		parseInt(prompt("Combien de tentatives voulez vous ?"));
-		choixTentatives;
-		parseInt(prompt("Choisissez un nombre minimum"));
-		choixMin;
-		parseInt(prompt("et maximum"));
-		choixMax;
+		tentatives = parseInt(prompt("Combien de tentatives voulez vous ?"), 10);
+		$("#tent").html(tentatives);
+		var min = parseInt(prompt("Choisissez un nombre minimum"), 10);
+		$("#minimum").html(min);
+		var max = parseInt(prompt("et maximum"), 10);
+		$("#maximum").html(max);
 		alert("Devinez le nombre mystère");
-		reset();
+		mystere = Math.round(Math.random() * (max - min) + min);
+		console.log(mystere);
+		debugger;
 	}
 
 	$("#go").click(reset);
