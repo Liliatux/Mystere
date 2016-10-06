@@ -8,7 +8,7 @@ function main(){
 		var input = $("input").val();
 		if(input == mystere){
 			annonce("Gagné !");			
-		} else if(tentatives == 0){
+		} else if(tentatives == 1){
 			annonce("Perdu");
 		} else if(input > mystere){
 			alert("Votre nombre est trop grand");
