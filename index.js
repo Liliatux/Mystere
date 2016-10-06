@@ -8,16 +8,16 @@ function main(){
 		var input = $("input").val();
 		if(input == mystere){
 			annonce("Gagné !");			
-		} else if(partiePerdue()){
-			annonce("Perdu");
 		} else if(tentatives == 0){
+			annonce("Perdu");
+		} else if(input > mystere){
 			alert("Votre nombre est trop grand");
 			diminution();
 		} else{
 			alert("Votre nombre est trop petit");
 			diminution();
 		}
-		
+
 		function annonce(message){
 			alert(message);
 			reset();
